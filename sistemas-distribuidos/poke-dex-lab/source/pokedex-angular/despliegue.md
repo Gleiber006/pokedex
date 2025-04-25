@@ -1,3 +1,112 @@
+# Diagrama de Arquitectura en Azure para PokeDex
+
+```
+                    [Usuario Final]
+                          |
+                          v
+                  [Navegador (HTTPS)]
+                          |
+                          v
++------------------------------------------------------+
+|                  AZURE STATIC WEB APPS               |
+|                                                      |
+|  - Hosting para la aplicación PokeDex Angular        |
+|  - URL: https://[nombre-app].azurestaticapps.net     |
+|  - HTTPS automático                                  |
++------------------------------------------------------+
+                          ^
+                          |
+                          v
++------------------------------------------------------+
+|                INTEGRACIÓN CON GITHUB                |
+|                                                      |
+|  +-------------------+    +----------------------+   |
+|  | GitHub Repository |    | GitHub Actions       |   |
+|  | PokeDex Angular   |--->| CI/CD Automatizado   |   |
+|  +-------------------+    +----------------------+   |
++------------------------------------------------------+
+                          ^
+                          |
+                          v
++------------------------------------------------------+
+|              ADMINISTRACIÓN Y SEGURIDAD              |
+|                                                      |
+|  +-------------------+    +----------------------+   |
+|  | Resource Group    |    | Azure Active         |   |
+|  | (Administración)  |<-->| Directory (Usuarios) |   |
+|  +-------------------+    +----------------------+   |
+|                                                      |
+|  +-------------------+    +----------------------+   |
+|  | Application       |    | Azure Monitor        |   |
+|  | Insights (Logs)   |<-->| (Alertas/Métricas)   |   |
+|  +-------------------+    +----------------------+   |
++------------------------------------------------------+
+```
+
+## Componentes de la Arquitectura
+
+### 1. Acceso de Usuario
+- **Usuario Final**: Accede a la aplicación PokeDex a través de cualquier navegador web
+- **HTTPS**: Conexión segura y cifrada para todas las comunicaciones
+
+### 2. Azure Static Web Apps
+- **Servicio principal de hosting** para aplicaciones web estáticas como PokeDex Angular
+- **Características clave**:
+  - URL pública con formato `https://[nombre-app].azurestaticapps.net`
+  - Certificados SSL/TLS generados y gestionados automáticamente
+  - Optimizado para Single Page Applications (SPA) como Angular
+  - Plan gratuito disponible para estudiantes
+
+### 3. Integración con GitHub
+- **GitHub Repository**:
+  - Almacena el código fuente de la aplicación PokeDex Angular
+  - Control de versiones y revisión de código
+  - Gestión de issues y características
+
+- **GitHub Actions**:
+  - Pipeline automático de Integración Continua y Despliegue Continuo (CI/CD)
+  - Ejecución de pruebas automáticas
+  - Compilación y despliegue a Azure con cada commit a la rama principal
+
+### 4. Administración y Seguridad
+- **Azure Resource Group**:
+  - Agrupación lógica de recursos relacionados con PokeDex
+  - Administración centralizada de permisos y políticas
+  - Control de costos y facturación
+
+- **Azure Active Directory**:
+  - Sistema de autenticación y autorización
+  - Gestión de identidades de estudiantes y desarrolladores
+  - Políticas de acceso y seguridad
+
+- **Application Insights**:
+  - Telemetría y análisis del rendimiento de la aplicación
+  - Registro de errores y excepciones
+  - Seguimiento de uso y comportamiento del usuario
+
+- **Azure Monitor**:
+  - Sistema centralizado de monitoreo
+  - Alertas basadas en umbrales definidos
+  - Dashboards personalizables para visualización de métricas
+
+## Flujo de Implementación
+
+1. El desarrollador sube cambios de código al repositorio GitHub
+2. GitHub Actions detecta los cambios y activa el pipeline de CI/CD
+3. Se realizan pruebas automáticas y se compila la aplicación
+4. La aplicación compilada se despliega en Azure Static Web Apps
+5. La nueva versión está disponible instantáneamente para los usuarios
+6. Application Insights monitorea el rendimiento y los errores
+7. Azure Monitor alerta sobre posibles problemas o anomalías
+
+## Beneficios de esta Arquitectura
+
+1. **Simplicidad operativa**: No requiere gestión de servidores
+2. **Seguridad mejorada**: HTTPS por defecto, protección a nivel de plataforma
+3. **Integración nativa con GitHub**: Simplifica el ciclo de desarrollo
+4. **Costos optimizados**: Modelo de pago por uso con opción gratuita para estudiantes
+5. **Escalabilidad automática**: Se adapta al tráfico sin configuración adicional
+
 # Implementación de la App PokeDex en Azure usando Static Web Apps
 
 Este documento describe cómo desplegar la aplicación **PokeDex** mediante el servicio **Azure Static Web Apps**, utilizando una cuenta de Microsoft Azure y tu repositorio de GitHub.
