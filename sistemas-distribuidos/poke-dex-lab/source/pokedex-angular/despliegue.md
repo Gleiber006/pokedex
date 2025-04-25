@@ -41,7 +41,7 @@ Haz clic en el resultado correspondiente y selecciona **"Crear"** para iniciar e
 
 #### 🔹 Detalles del Sitio Web
 
-- **Nombre de la app**: Ingresa un nombre único a nivel global (ej: `pokedex-rony`).
+- **Nombre de la app**: Ingresa un nombre único a nivel global (ej: `pokedex-Gleiber`).
 - **Plan de hosting**: Selecciona la opción gratuita si es tu primer despliegue.
 - **Región**: Elige una localización cercana a tus usuarios (ej: East US, West Europe).
 
@@ -94,4 +94,4 @@ Cuando termine el despliegue, se te asignará una URL pública del estilo:
 
 ### 👨‍💻 Autor
 
-Rony Valdelamar — Proyecto académico para Pueblo Paleta Inc.
+Gleiber garces — Proyecto académico para Pueblo Paleta Inc.
