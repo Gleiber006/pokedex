@@ -83,4 +83,4 @@ Al finalizar el proceso, Azure te proporcionará una URL pública. ¡Tu PokeDex 
 
 ### ✍️ Creado por
 
-Rony Valdelamar — Iniciativa académica para Pueblo Paleta Inc.
+Julian Santana — Iniciativa académica para Pueblo Paleta Inc.
